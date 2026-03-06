@@ -18,7 +18,6 @@ public class BaseTest {
                 Boolean.parseBoolean(ConfigReader.get("headless"))
         );
 
-        // ⭐ IMPORTANT FIX
         page = PlaywrightFactory.getPage();
 
         page.navigate(ConfigReader.get("baseUrl"));
@@ -26,6 +25,6 @@ public class BaseTest {
 
     @AfterMethod
     public void tearDown() {
-        //PlaywrightFactory.tearDown();
+        PlaywrightFactory.tearDown();
     }
 }

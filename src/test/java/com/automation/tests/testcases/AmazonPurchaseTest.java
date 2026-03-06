@@ -23,14 +23,14 @@ public class AmazonPurchaseTest extends BaseTest {
 
         home.searchProduct(searchProduct);
 
-        // ⭐ Capture new tab
+
         Page productPage = home.clickProduct(productName);
 
         System.out.println("Product name from config: " + productName);
 
         productPage.waitForLoadState();
 
-        // ⭐ Use new page for product actions
+
         ProductPage product = new ProductPage(productPage);
 
         product.selectQuantity(quantity);
