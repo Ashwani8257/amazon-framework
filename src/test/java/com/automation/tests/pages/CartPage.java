@@ -15,9 +15,7 @@ public class CartPage {
 
     public String getItemName() {
 
-        Locator itemName = page.getByRole(AriaRole.LINK,
-                new Page.GetByRoleOptions()
-                        .setName(Pattern.compile("HP Smart Tank 589")));
+        Locator itemName = page.locator(".sc-product-title").first();
 
         itemName.waitFor();
 

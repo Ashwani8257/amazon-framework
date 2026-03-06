@@ -44,13 +44,13 @@ public class AmazonPurchaseTest extends BaseTest {
 
         productPage.waitForLoadState();
 
-        //String cartItem = cart.getItemName();
+        String cartItem = cart.getItemName();
 
-        //System.out.println("Cart Item Name: " + cartItem);
+        System.out.println("Cart Item Name: " + cartItem);
 
-        //productPage.pause();
 
-       // Assert.assertTrue(cartItem.contains(productName));
+
+        Assert.assertTrue(cartItem.contains(productName));
 
         String cartQty = cart.getQuantity();
 
@@ -58,6 +58,5 @@ public class AmazonPurchaseTest extends BaseTest {
 
         Assert.assertEquals(cartQty, quantity);
 
-       productPage.pause();
     }
 }
