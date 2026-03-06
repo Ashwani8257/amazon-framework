@@ -12,16 +12,15 @@ public class CartPage {
 
     public String getItemName() {
 
-        Locator itemName = page.locator(".sc-product-title").first();
+        Locator itemName = page.locator("span.a-truncate-cut").first();
 
         itemName.waitFor();
 
         return itemName.innerText().trim();
     }
-
     public String getQuantity() {
 
-        Locator quantity = page.locator("span.a-dropdown-prompt");
+        Locator quantity = page.locator("span[data-a-selector='inner-value']").first();
 
         quantity.waitFor();
 

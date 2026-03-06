@@ -46,9 +46,13 @@ public class AmazonPurchaseTest extends BaseTest {
 
         String cartItem = cart.getItemName();
 
+        System.out.println("Cart Item Name: " + cartItem);
+
         Assert.assertTrue(cartItem.contains(productName));
 
         String cartQty = cart.getQuantity();
+
+        System.out.println("Cart Quantity: " + cartQty);
 
         Assert.assertEquals(cartQty, quantity);
 
