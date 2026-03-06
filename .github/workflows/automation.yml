@@ -22,14 +22,14 @@ jobs:
           java-version: 17
           cache: maven
 
-      - name: Build Project (Skip Tests)
-        run: mvn clean install -DskipTests
+      - name: Build Project
+        run: mvn clean compile
 
-      - name: Install Playwright Browsers & Dependencies
+      - name: Install Playwright Browsers
         run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
 
       - name: Run Tests
-        run: mvn test -e
+        run: mvn test -X
 
       - name: Upload Surefire Reports
         if: always()
