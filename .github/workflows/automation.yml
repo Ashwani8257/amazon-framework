@@ -20,22 +20,15 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
+          cache: maven
 
-      - name: Cache Maven Dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
-
-      - name: Build Project
+      - name: Build Project (Skip Tests)
         run: mvn clean install -DskipTests
 
-      - name: Install Playwright Browsers
-        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install"
+      - name: Install Playwright Browsers & Dependencies
+        run: mvn exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps"
 
-      - name: Run Tests (Verbose Mode)
+      - name: Run Tests
         run: mvn test -e
 
       - name: Upload Surefire Reports
